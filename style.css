@@ -47,8 +47,8 @@ body {
     z-index: 4;
     pointer-events: none;
     box-shadow: 0 0 10px #1900FF,
-                0 0 50px #1900FF,
-                0 0 100px #1900FF;
+                0 0 50px #1900ff,
+                0 0 100px #1900ff;
     animation: cursor-animation 3s infinite;
 }
 
@@ -86,7 +86,7 @@ body {
 }
 
 #logo {
-    font-size: 50px;
+    font-size: 500%;
     font-weight: bold;
     font-family: monospace;
     background: linear-gradient(90deg, #56AA1D 0%, #720979 35%, #00D4FF 100%);
@@ -114,10 +114,10 @@ body {
 .navigation {
     color: #FFF;
     text-decoration: none;
-    font-size: 20px;
+    font-size: 180%;
     font-family: monospace;
     font-weight: bold;
-    margin-right: 50px;
+    margin-right: 80px;
     transition: 0.5s;
 }
 
@@ -217,6 +217,53 @@ body {
     text-decoration: underline;
 } 
 
+
+#CENTER-ELEMENT {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+@keyframes centerLight {
+    0% {
+        box-shadow: 0 0 0 10px #ffa50044;
+        filter: hue-rotate(0deg);
+    }
+    25% {
+        box-shadow: 0 0 0 10px #ffa50044,
+                    0 0 0 40px #ffa50033;
+        filter: hue-rotate(120deg);
+    }
+    50% {
+        box-shadow: 0 0 0 10px #ffa50044,
+                    0 0 0 40px #ffa50033,
+                    0 0 0 70px #ffa50022;
+        filter: hue-rotate(240deg);
+    }
+    100% {
+        box-shadow: 0 0 0 10px #ffa50044,
+                    0 0 0 40px #ffa50033,
+                    0 0 0 70px #ffa50022,
+                    0 0 0 100px #ffa50011;
+        filter: hue-rotate(360deg);
+    }
+}
+
+#CENTER-ELEMENT-IS-HERE {
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    background-color: orange;
+    animation: centerLight 4s alternate infinite;
+}
+
+
+/*      */
 #PRANK {
     display: flex;
     justify-content: center;
@@ -241,7 +288,7 @@ body {
     border-radius: 20px;
     background-color: #0A970A;
     margin-top: 20px;
-    transition: background-color, box-shadow 0.5s;
+    transition: background-color, box-shadow 0.1s;
 }
 
 .back:hover {
@@ -256,6 +303,7 @@ body {
 
 .text {
     color: #0000FF;
+    font-size: 4vw;
 }
 
 .text::before {
@@ -265,6 +313,7 @@ body {
 
 .plaintext {
     background: linear-gradient(90deg, #000 0%, #288A3D 42%, #000 100%);
+    font-size: 400%;
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-size: 400%;
@@ -281,12 +330,13 @@ body {
 }
 
 #FUNNY-IMG {
-    width: 600px;
+    width: 45%;
     border-radius: 5px;
 }
 
 #ALERT {
     margin-block: 30px;
+    font-size: 400%;
     background: linear-gradient(90deg, #000 0%, #288A3D 42%, #000 100%);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
@@ -337,4 +387,109 @@ body {
     text-indent: 5%;
     font-size: 20px;
     font-weight: bold;
+}
+
+
+/* art(art.html) css */
+
+#ROTATE-CIRCLE {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    column-gap: 100px;
+}
+
+.circle {
+    width: 16vw;
+    height: 16vw;
+    border: 5px solid gray;
+    border-radius: 50%;
+}
+
+#ROTATE-CIRCLE .circle:nth-child(1) {
+    border: 5px solid transparent;
+    border-bottom: 5px solid green;
+    animation: rotateCircle 10s linear infinite;
+}
+
+#ROTATE-CIRCLE .circle:nth-child(1)::after {
+    position: absolute;
+    top: 76%;
+    left: 3%;
+    content: "";
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    background-color: #24ecff;
+    box-shadow: 0 0 0 5px #24ecff33,
+                0 0 0 10px #24ecff22,
+                0 0 0 15px #24ecff11
+    ;
+}
+
+@keyframes rotateCircle {
+    0% {
+        transform: rotate(0deg);
+    }
+
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
+#ROTATE-CIRCLE .circle:nth-child(2) {
+    border: 5px solid transparent;
+    border-top: 5px solid green;
+    animation: rotateCircle 10s linear infinite;
+}
+
+#ROTATE-CIRCLE .circle:nth-child(2)::after {
+    position: absolute;
+    top: 10%;
+    left: 82%;
+    content: "";
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    background-color: #cc00ff;
+    box-shadow: 0 0 0 5px #cc00ff33,
+                0 0 0 10px #cc00ff22,
+                0 0 0 15px #cc00ff11
+    ;
+}
+
+@keyframes rotateCircle1 {
+    0% {
+        transform: rotate(360deg);
+    }
+
+    100% {
+        transform: rotate(0deg);
+    }
+}
+
+#ROTATE-CIRCLE .circle:nth-child(3) {
+    border: 5px solid transparent;
+    border-left: 5px solid green;
+    animation: rotateCircle1 10s linear infinite;
+}
+
+#ROTATE-CIRCLE .circle:nth-child(3)::before {
+    position: absolute;
+    top: 85%;
+    left: 15%;
+    content: "";
+    width: 20px;    
+    height: 20px;
+    border-radius: 50%;
+    background-color: #ff9900;
+    box-shadow: 0 0 0 5px #ff990033,
+                0 0 0 10px #ff990022,
+                0 0 0 15px #ff990011
+    ;
 }

@@ -16,10 +16,12 @@ let saveStory = document.getElementById("SAVE-STORY");
 
 
 document.addEventListener("DOMContentLoaded", () => {
+    cursorCircle.style = "display: none";
     document.addEventListener("mousemove", function(pos) {
+        cursorCircle.style = "display: block";
         cursorCircle.style = `left: ${pos.clientX}px; top: ${pos.clientY}px;`;
     })
-
+  
     try {
         saveStory.addEventListener("click", function() {
             const fs = require("fs");
