@@ -13,6 +13,7 @@ let backButton = document.getElementsByClassName("back");
 let close = document.getElementById("close");
 let storyText = document.getElementById("INPUT-STORY");
 let saveStory = document.getElementById("SAVE-STORY");
+let needHelp = document.getElementById("need-help");
 
 
 document.addEventListener("DOMContentLoaded", () => {
@@ -88,7 +89,17 @@ document.addEventListener("DOMContentLoaded", () => {
         console.log();
     }
     
-    
+    try {
+        needHelp.addEventListener("click", function() {
+            setTimeout(function() {
+                location.reload();
+                console.log("Hello, world");
+            }, 1000);
+        });
+    } catch {
+        console.log();
+    }
+
 })
 
 function back() {
