@@ -128,13 +128,13 @@ body {
 }
 
 .navigation:hover {
-    color: #008000;
+    color: #FFA500;
 }
 
 .navigation::after {
     display: block;
     content: "";
-    background-color: #FFA500;
+    background-color: #008000;
     height: 3px;
     width: 0;
     border-radius: 3px;
