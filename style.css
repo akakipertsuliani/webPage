@@ -1,8 +1,18 @@
+:root {
+    --circel-size: 2.5vw;
+}
+
 * {
     margin: 0;
     padding: 0;
     outline: none;
     font-family: monospace;
+}
+
+#menu-icon {
+    display: none;
+    margin-right: 6%;
+    font-size: 2.1em;
 }
 
 @keyframes gradient-animation {
@@ -29,10 +39,31 @@
     }
 }
 
-@media screen and (max-width: 600px) {
+@media screen and (max-width: 768px) {
     #CURSOR {
         display: none;
     }
+
+    #menu-icon {
+        display: block;
+    }
+
+    #nav-container {
+        display: none;
+    }
+
+    #logIn {
+        display: none;
+    }
+
+    .circle:nth-child(2) {
+        display: none;
+    }
+
+    .circle:nth-child(3) {
+        display: none;
+    }
+    
 }
 
 /* animation: name duration timing-function delay iteration-count direction fill-mode; */
@@ -92,7 +123,7 @@ body {
 }
 
 #logo {
-    font-size: 500%;
+    font-size: 5em;
     font-weight: bold;
     font-family: monospace;
     background: linear-gradient(90deg, #56AA1D 0%, #720979 35%, #00D4FF 100%);
@@ -101,7 +132,7 @@ body {
     -webkit-text-fill-color: transparent;
     animation: gradient-animation 5s linear infinite alternate;
     transition: transform 0.5s;
-    margin-left: 70px; 
+    margin-left: 6%; 
     cursor: pointer;
 }
 
@@ -109,21 +140,22 @@ body {
     transform: scale(0.9);
 }
 
-#list-container {
-    list-style: none;
+#nav-container {
+    margin-right: 6%;
 }
 
-.element {
-    display: inline-flex;
+#list-container {
+    list-style: none;
+    display: flex;
+    column-gap: 9em;
 }
 
 .navigation {
     color: #FFF;
     text-decoration: none;
-    font-size: 180%;
+    font-size: 1.7em;
     font-family: monospace;
     font-weight: bold;
-    margin-right: 80px;
     transition: 0.5s;
 }
 
@@ -259,114 +291,114 @@ body {
 }
 
 .move-circle:nth-child(1) {
-    top: 2.5vw;
-    left: 2.5vw;
-    right: 2.5vw;
-    bottom: 2.5vw;
+    top: var(--circel-size);
+    left: var(--circel-size);
+    right: var(--circel-size);
+    bottom: var(--circel-size);
     animation-delay: 0.1s;
 }
 
 .move-circle:nth-child(2) {
-    top: 3vw;
-    left: 3vw;
-    right: 3vw;
-    bottom: 3vw;
+    top: calc(var(--circel-size) + 0.5vw);
+    left: calc(var(--circel-size) + 0.5vw);
+    right: calc(var(--circel-size) + 0.5vw);
+    bottom: calc(var(--circel-size) + 0.5vw);
     animation-delay: 0.2s;
 }
 
 .move-circle:nth-child(3) {
-    top: 3.5vw;
-    left: 3.5vw;
-    right: 3.5vw;
-    bottom: 3.5vw;
+    top: calc(var(--circel-size) + 1vw);
+    left: calc(var(--circel-size) + 1vw);
+    right: calc(var(--circel-size) + 1vw);
+    bottom: calc(var(--circel-size) + 1vw);
     animation-delay: 0.3s;
 }
 
 .move-circle:nth-child(4) {
-    top: 4vw;
-    left: 4vw;
-    right: 4vw;
-    bottom: 4vw;
+    top: calc(var(--circel-size) + 1.5vw);
+    left: calc(var(--circel-size) + 1.5vw);
+    right: calc(var(--circel-size) + 1.5vw);
+    bottom: calc(var(--circel-size) + 1.5vw);
     animation-delay: 0.4s;
 }
 
 .move-circle:nth-child(5) {
-    top: 4.5vw;
-    left: 4.5vw;
-    right: 4.5vw;
-    bottom: 4.5vw;
+    top: calc(var(--circel-size) + 2vw);
+    left: calc(var(--circel-size) + 2vw);
+    right: calc(var(--circel-size) + 2vw);
+    bottom: calc(var(--circel-size) + 2vw);
     animation-delay: 0.5s;
 }
 
 .move-circle:nth-child(6) {
-    top: 5vw;
-    left: 5vw;
-    right: 5vw;
-    bottom: 5vw;
+    top: calc(var(--circel-size) + 2.5vw);
+    left: calc(var(--circel-size) + 2.5vw);
+    right: calc(var(--circel-size) + 2.5vw);
+    bottom: calc(var(--circel-size) + 2.5vw);
     animation-delay: 0.6s;
 }
 
 .move-circle:nth-child(7) {
-    top: 5.5vw;
-    left: 5.5vw;
-    right: 5.5vw;
-    bottom: 5.5vw;
+    top: calc(var(--circel-size) + 3vw);
+    left: calc(var(--circel-size) + 3vw);
+    right: calc(var(--circel-size) + 3vw);
+    bottom: calc(var(--circel-size) + 3vw);
     animation-delay: 0.7s;
 }
 
 .move-circle:nth-child(8) {
-    top: 6vw;
-    left: 6vw;
-    right: 6vw;
-    bottom: 6vw;
+    top: calc(var(--circel-size) + 3.5vw);
+    left: calc(var(--circel-size) + 3.5vw);
+    right: calc(var(--circel-size) + 3.5vw);
+    bottom: calc(var(--circel-size) + 3.5vw);
     animation-delay: 0.8s;
 }
 
 .move-circle:nth-child(9) {
-    top: 6.5vw;
-    left: 6.5vw;
-    right: 6.5vw;
-    bottom: 6.5vw;
+    top: calc(var(--circel-size) + 4vw);
+    left: calc(var(--circel-size) + 4vw);
+    right: calc(var(--circel-size) + 4vw);
+    bottom: calc(var(--circel-size) + 4vw);
     animation-delay: 0.9s;
 }
 
 .move-circle:nth-child(10) {
-    top: 7vw;
-    left: 7vw;
-    right: 7vw;
-    bottom: 7vw;
+    top: calc(var(--circel-size) + 4.5vw);
+    left: calc(var(--circel-size) + 4.5vw);
+    right: calc(var(--circel-size) + 4.5vw);
+    bottom: calc(var(--circel-size) + 4.5vw);
     animation-delay: 1s;
 }
 
 .move-circle:nth-child(11) {
-    top: 7.5vw;
-    left: 7.5vw;
-    right: 7.5vw;
-    bottom: 7.5vw;
+    top: calc(var(--circel-size) + 5vw);
+    left: calc(var(--circel-size) + 5vw);
+    right: calc(var(--circel-size) + 5vw);
+    bottom: calc(var(--circel-size) + 5vw);
     animation-delay: 1.1s;
 }
 
 .move-circle:nth-child(12) {
-    top: 8vw;
-    left: 8vw;
-    right: 8vw;
-    bottom: 8vw;
+    top: calc(var(--circel-size) + 5.5vw);
+    left: calc(var(--circel-size) + 5.5vw);
+    right: calc(var(--circel-size) + 5.5vw);
+    bottom: calc(var(--circel-size) + 5.5vw);
     animation-delay: 1.2s;
 }
 
 .move-circle:nth-child(13) {
-    top: 8.5vw;
-    left: 8.5vw;
-    right: 8.5vw;
-    bottom: 8.5vw;
+    top: calc(var(--circel-size) + 6vw);
+    left: calc(var(--circel-size) + 6vw);
+    right: calc(var(--circel-size) + 6vw);
+    bottom: calc(var(--circel-size) + 6vw);
     animation-delay: 1.3s;
 }
 
 .move-circle:nth-child(14) {
-    top: 9vw;
-    left: 9vw;
-    right: 9vw;
-    bottom: 9vw;
+    top: calc(var(--circel-size) + 6.5vw);
+    left: calc(var(--circel-size) + 6.5vw);
+    right: calc(var(--circel-size) + 6.5vw);
+    bottom: calc(var(--circel-size) + 6.5vw);
     animation-delay: 1.4s;
 }   
 
@@ -581,8 +613,8 @@ i:hover {
 }
 
 .circle {
-    width: 16vw;
-    height: 16vw;
+    width: 15em;
+    height: 15em;
     border: 5px solid gray;
     border-radius: 50%;
 }
