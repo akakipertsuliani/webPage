@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -7,6 +8,7 @@
     <link rel="stylesheet" href="style.css">
     <title>Funny</title>
 </head>
+
 <body id="FUNNY">
     <div id="CURSOR"></div>
 
@@ -14,8 +16,32 @@
 
     <h1 id="ALERT">This page does not work yet.</h1>
 
-    <button class="back" onclick="back()">Back</button>  
+    <button class="back" onclick="back()">Back</button>
 
-    <script src="script.js"></script>
+    <script>
+        let cursorCircle = document.getElementById("CURSOR");
+
+        function back() {
+            location.href = "index.html";
+        }
+
+        cursorCircle.style.opacity = 0;
+        let timeoutId;
+
+        document.addEventListener("mousemove", function (pos) {
+            cursorCircle.style.opacity = 1;
+            cursorCircle.style.top = pos.clientY + "px";
+            cursorCircle.style.left = pos.clientX + "px";
+
+            if (timeoutId) {
+                clearTimeout(timeoutId);
+            }
+
+            timeoutId = setTimeout(function () {
+                cursorCircle.style.opacity = 0;
+            }, 1000);
+        });
+    </script>
 </body>
+
 </html>

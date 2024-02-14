@@ -6,79 +6,61 @@ let body = document.getElementById("main");
 let border = document.getElementById("LOGIN-CONTAINER");
 let logInInput = document.getElementById("email-button");
 let passwordInput = document.getElementById("password-button");
-let logInText = document.getElementById("SHOW-EMAIL");
-let passwordText = document.getElementById("SHOW-PASSWORD");
-let goBack = document.getElementById("PRANK-IMAGE");
-let backButton = document.getElementsByClassName("back");
 let close = document.getElementById("close");
-let storyText = document.getElementById("INPUT-STORY");
-let saveStory = document.getElementById("SAVE-STORY");
-let needHelp = document.getElementById("need-help");
 
 
 document.addEventListener("DOMContentLoaded", () => {
-    cursorCircle.style = "display: none";
-    document.addEventListener("mousemove", function(pos) {
-        cursorCircle.style = "display: block";
-        cursorCircle.style = `left: ${pos.clientX}px; top: ${pos.clientY}px;`;
+    cursorCircle.style.opacity = 0;
+    let timeoutId;
+
+    document.addEventListener("mousemove", (pos) => {
+        cursorCircle.style.opacity = 1;
+        cursorCircle.style.top = pos.clientY + "px";
+        cursorCircle.style.left = pos.clientX + "px";
+
+        if (timeoutId) {
+            clearTimeout(timeoutId);
+        }
+
+        timeoutId = setTimeout(() => {
+            cursorCircle.style.opacity = 0;
+        }, 1000);
+    });
+
+    loginButton.addEventListener("click", () => {
+        body.style = "backdrop-filter: blur(5px); transition: backdrop-filter 1s; visibility: visible;";
+        border.style = "display: flex";
+        loginContainer.style = "display: flex;";
     })
-    
-    try {
-        loginButton.addEventListener("click", function() {
-            body.style = "backdrop-filter: blur(5px); transition: backdrop-filter 1s; visibility: visible;";
-            border.style = "display: flex";
-            loginContainer.style = "display: flex;";
-        })
 
-        submitButton.addEventListener('click', function() {
-            localStorage.setItem("Email", logInInput.value);
-            localStorage.setItem("Password", passwordInput.value);
-            location.href = "prank.html";
+    submitButton.addEventListener('click', () => {
+        localStorage.setItem("Email", logInInput.value);
+        localStorage.setItem("Password", passwordInput.value);
+        location.href = "prank.html";
+    })
 
-        }) 
-        
-    } catch {
-        console.log();
-    }
+    close.addEventListener('click', () => {
+        body.style = "backdrop-filter: blur(0); transition: backdrop-filter 0s; visibility: hidden;";
+        border.style = "display: none";
+        loginContainer.style = "display: none;";
+    });
 
-    try {
-        backButton.addEventListener("click", function() {
-            location.href = "index.html";
-        })
-    } catch {
-        console.log();
-    }
+    let navBar = document.getElementById("nav-container");
+    let menuIcon = document.getElementById("menu-icon");
 
-    try {
-        close.addEventListener('click', function() {
-            body.style = "backdrop-filter: blur(0); transition: backdrop-filter 0s; visibility: hidden;";
-            border.style = "display: none";
-            loginContainer.style = "display: none;";
-        })
-    } catch {
-        console.log();
-    }
+    menuIcon.addEventListener("click", () => {
+        navBar.classList.add("active");
+    })
 
-    try {
-        logInText.innerHTML = " " + localStorage.getItem("Email");
-        passwordText.innerHTML = " " + localStorage.getItem("Password");
-    } catch {
-        console.log();
-    }
-    
-    try {
-        needHelp.addEventListener("click", function() {
-            setTimeout(function() {
-                location.reload();
-                console.log("Hello, world");
-            }, 1000);
-        });
-    } catch {
-        console.log();
-    }
+    document.getElementById("close-icon").addEventListener("click", () => {
+        navBar.classList.remove("active");
+    })
+
+    document.addEventListener("click", (e) => {
+        if (!navBar.contains(e.target) && !menuIcon.contains(e.target) && window.innerWidth < 1024) {
+            navBar.classList.remove("active");
+        }
+    })
 
 })
 
-function back() {
-    location.href = "index.html";
-}

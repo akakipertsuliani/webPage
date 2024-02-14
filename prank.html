@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -7,21 +8,51 @@
     <link rel="stylesheet" href="style.css">
     <title>Hahaha</title>
 </head>
+
 <body id="PRANK">
     <div id="CURSOR"></div>
 
     <img id="PRANK-IMAGE" src="image/prank.gif" alt="Spangbob">
 
     <div class="text-alert">
-        <h1 class="plaintext">You email is <h1 class="text" id="SHOW-EMAIL"></h1></h1>
+        <h1 class="plaintext">You email is:<h1 class="text" id="SHOW-EMAIL"></h1>
+        </h1>
     </div>
 
     <div class="text-alert">
-        <h1 class="plaintext">You password is <h1 class="text" id="SHOW-PASSWORD"></h1></h1>
+        <h1 class="plaintext">You password is:<h1 class="text" id="SHOW-PASSWORD"></h1>
+        </h1>
     </div>
 
     <button class="back" onclick="back()">Back</button>
 
-    <script src="script.js"></script>
+    <script>
+        let cursorCircle = document.getElementById("CURSOR");
+
+        function back() {
+            location.href = "index.html";
+        }
+
+        document.getElementById("SHOW-EMAIL").innerHTML = " " + localStorage.getItem("Email");
+        document.getElementById("SHOW-PASSWORD").innerHTML = " " + localStorage.getItem("Password");
+
+        cursorCircle.style.opacity = 0;
+        let timeoutId;
+
+        document.addEventListener("mousemove", function (pos) {
+            cursorCircle.style.opacity = 1;
+            cursorCircle.style.top = pos.clientY + "px";
+            cursorCircle.style.left = pos.clientX + "px";
+
+            if (timeoutId) {
+                clearTimeout(timeoutId);
+            }
+
+            timeoutId = setTimeout(function () {
+                cursorCircle.style.opacity = 0;
+            }, 1000);
+        });
+    </script>
 </body>
+
 </html>
